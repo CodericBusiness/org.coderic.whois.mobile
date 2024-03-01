@@ -1,0 +1,7 @@
+{
+  "name": "CodericWhoisApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
