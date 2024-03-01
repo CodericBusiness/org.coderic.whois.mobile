@@ -1,4 +1,4 @@
-#container {
+#notFound {
   text-align: center;
 
   position: absolute;
@@ -8,12 +8,12 @@
   transform: translateY(-50%);
 }
 
-#container strong {
+#notFound strong {
   font-size: 20px;
   line-height: 26px;
 }
 
-#container p {
+#notFound p {
   font-size: 16px;
   line-height: 22px;
 
@@ -22,6 +22,6 @@
   margin: 0;
 }
 
-#container a {
+#notFound a {
   text-decoration: none;
 }

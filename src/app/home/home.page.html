@@ -1,19 +1,76 @@
-<ion-header [translucent]="true">
-  <ion-toolbar color="primary">
-    <ion-title>
-      Coderic Whois
-    </ion-title>
-  </ion-toolbar>
+<ion-header>
+  <form [formGroup]="whoisForm">
+    <ion-toolbar color="primary">
+      <ion-title>
+        Coderic Whois
+      </ion-title>
+    </ion-toolbar>
+    <ion-toolbar>
+      <!--ion-select formControlName="type" slot="start" interface="popover" aria-label="Type">
+        <ion-select-option value="domain">Domain</ion-select-option>
+        <ion-select-option value="ip">Ip</ion-select-option>
+        <ion-select-option value="autnum">Autnum</ion-select-option>
+        <ion-select-option value="entity">Entity</ion-select-option>
+      </ion-select-->
+      <ion-searchbar formControlName="name" [debounce]="1000" placeholder="example.com, 196.168.0.1, 2001:db8::/32, AS64496, etc" animated="true"></ion-searchbar>
+    </ion-toolbar>
+  </form>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Coderic Whois</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    
+<ion-content>
+  <div id="container" *ngIf="whois$| async as whois else notFound">
+    <ion-item>{{ whois.ldhName }}</ion-item>
+    <ion-item>{{ whois.handle }}</ion-item>
+    <ion-list>
+      <ion-list-header color="secondary">
+        <ion-label>Events</ion-label>
+      </ion-list-header>
+      <ion-item *ngFor="let event of whois.events">
+        <ion-text slot="start">{{ event.eventDate }}</ion-text>
+        <ion-label>{{ event.eventAction }}</ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+      <ion-list-header color="secondary">
+        <ion-label>Nameservers</ion-label>
+      </ion-list-header>
+      <ion-item *ngFor="let nameserver of whois.nameservers">
+        <ion-label>{{ nameserver.ldhName }}</ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+      <ion-list-header color="secondary">
+        <ion-label>Status</ion-label>
+      </ion-list-header>
+      <ion-item *ngFor="let status of whois.status">
+        <ion-label>{{ status }}</ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+      <ion-list-header color="secondary">
+        <ion-label>Links</ion-label>
+      </ion-list-header>
+      <ion-item *ngFor="let link of whois.links" [href]="link.href">
+        <ion-label>{{ link.value }}</ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+      <ion-list-header color="secondary">
+        <ion-label>Notices</ion-label>
+      </ion-list-header>
+      <ion-card *ngFor="let notice of whois.notices" [href]="notice.links[0].href">
+        <ion-card-header>
+          <ion-card-title>{{ notice.title }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          {{ notice.description }}
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
   </div>
+  <ng-template #notFound>
+    <div id="notFound">
+      Not found
+    </div>
+  </ng-template>
 </ion-content>
