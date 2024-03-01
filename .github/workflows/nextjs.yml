@@ -25,7 +25,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   # Build job
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -59,18 +59,4 @@ jobs:
       - name: Build with Ionic
         run: npm install -g @ionic/cli
       - name: Static HTML export with Ionic
-        run: ionic build
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./www
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        run: ionic test
