@@ -1,8 +1,13 @@
 {
-  "name": "com.coderic.whois.mobile",
+  "name": "@coderic/whois-mobile",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "author": {
+    "name": "Coderic",
+    "email": "coderic@coderic.org",
+    "url": "https://coderic.com/"
+  },
+  "homepage": "https://github.com/Coderic/com.coderic.whois.mobile/",
+  "description": "Coderic Whois App",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -59,6 +64,5 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "~5.3.3"
-  },
-  "description": "An Ionic project"
+  }
 }
