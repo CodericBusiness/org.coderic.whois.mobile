@@ -8,6 +8,7 @@
   },
   "homepage": "https://github.com/Coderic/com.coderic.whois.mobile/",
   "description": "Coderic Whois App",
+  "license":"GPL-3.0-only",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -26,6 +27,7 @@
     "@angular/platform-browser": "^17.2.3",
     "@angular/platform-browser-dynamic": "^17.2.3",
     "@angular/router": "^17.2.3",
+    "@capacitor/android": "5.7.1",
     "@capacitor/app": "5.0.7",
     "@capacitor/core": "5.7.1",
     "@capacitor/haptics": "5.0.7",

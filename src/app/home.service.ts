@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -6,12 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class HomeService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   searchWhois(query: null | Partial<QueryInterface>): Observable<any> {
-    let url = (query?.name!=null)? `https://rdap.org/${query.type}/${query.name}`:'';
-    return this.http.get<any>(url);
+      let url = (query?.name!=null)? `https://rdap.org/${query.type}/${query.name}`:'';
+      return this.http.get<any>(url);
   }
 }
 interface QueryInterface {

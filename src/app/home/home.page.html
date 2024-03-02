@@ -17,18 +17,28 @@
   </form>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="whoisForm.invalid">
+  xD
+</ion-content>
+<ion-content *ngIf="whoisForm.valid">
+  <ion-progress-bar type="indeterminate" *ngIf="loader"></ion-progress-bar>
   <div id="container" *ngIf="whois$| async as whois else notFound">
     <ion-item>{{ whois.ldhName }}</ion-item>
-    <ion-item>{{ whois.handle }}</ion-item>
+    <ion-item>
+      <ion-label>
+        {{ whois.handle }}
+      </ion-label>
+    </ion-item>
     <ion-list>
       <ion-list-header color="secondary">
         <ion-label>Events</ion-label>
       </ion-list-header>
-      <ion-item *ngFor="let event of whois.events">
-        <ion-text slot="start">{{ event.eventDate }}</ion-text>
-        <ion-label>{{ event.eventAction }}</ion-label>
-      </ion-item>
+      <ion-grid>
+        <ion-row *ngFor="let event of whois.events">
+          <ion-col>{{ event.eventAction }}:</ion-col>
+          <ion-col>{{ event.eventDate | date: 'MM/dd/yy, h:mm a' }}</ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-list>
     <ion-list>
       <ion-list-header color="secondary">
