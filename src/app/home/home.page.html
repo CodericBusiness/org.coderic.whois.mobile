@@ -2,23 +2,23 @@
   <form [formGroup]="whoisForm">
     <ion-toolbar color="primary">
       <ion-title>
-        Coderic Whois
+        Whois
       </ion-title>
     </ion-toolbar>
-    <ion-toolbar>
+    <ion-toolbar color="secondary">
       <!--ion-select formControlName="type" slot="start" interface="popover" aria-label="Type">
         <ion-select-option value="domain">Domain</ion-select-option>
         <ion-select-option value="ip">Ip</ion-select-option>
         <ion-select-option value="autnum">Autnum</ion-select-option>
         <ion-select-option value="entity">Entity</ion-select-option>
       </ion-select-->
-      <ion-searchbar formControlName="name" [debounce]="1000" placeholder="example.com, 196.168.0.1, 2001:db8::/32, AS64496, etc" animated="true"></ion-searchbar>
+      <ion-searchbar formControlName="name" [debounce]="1000" placeholder="example.com" animated="true"></ion-searchbar>
     </ion-toolbar>
   </form>
 </ion-header>
-
-<ion-content *ngIf="whoisForm.invalid">
-  xD
+<ion-content *ngIf="whoisForm.invalid" class="ion-padding ion-text-center">
+  <p>We do not collect or do telemetry of any kind in this tool, you can verify it by examining the source that is free and open distributed under GPL3 license through the following url: <a href="https://github.com/Coderic/org.coderic.whois.web">https://github.com/Coderic/org.coderic.whois.web</a></p>
+  <p>If you do not trust our privacy policy which states that we do not telemetry your queries, feel free to download and compile this application from source.</p>
 </ion-content>
 <ion-content *ngIf="whoisForm.valid">
   <ion-progress-bar type="indeterminate" *ngIf="loader"></ion-progress-bar>

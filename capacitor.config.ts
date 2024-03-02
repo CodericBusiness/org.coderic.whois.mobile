@@ -1,11 +1,15 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.coderic.whois.mobile',
-  appName: 'CodericWhoisApp',
+  appId: 'org.coderic.whois.mobile',
+  appName: 'WhoisApp',
   webDir: 'www',
   server: {
-    androidScheme: 'https'
+    androidScheme: 'https',
+    cleartext: true,
+    allowNavigation: [
+      "rdap.org"
+    ]
   }
 };
 
