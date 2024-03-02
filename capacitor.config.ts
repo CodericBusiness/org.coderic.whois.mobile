@@ -2,7 +2,7 @@ import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'org.coderic.whois.mobile',
-  appName: 'WhoisApp',
+  appName: 'Whois',
   webDir: 'www',
   server: {
     androidScheme: 'https',
@@ -15,7 +15,7 @@ const config: CapacitorConfig = {
     SplashScreen: {
       launchShowDuration: 0,
       backgroundColor: '#ffffffff',
-      launchAutoHide: true,
+      launchAutoHide: true
     }
   }
 };
