@@ -1,13 +1,13 @@
 {
   "name": "@coderic/whois-mobile",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": {
     "name": "Coderic",
     "email": "coderic@coderic.org",
     "url": "https://coderic.com/"
   },
   "homepage": "https://github.com/Coderic/org.coderic.whois.mobile/",
-  "description": "Coderic Whois App",
+  "description": "Whois",
   "license": "GPL-3.0-only",
   "scripts": {
     "ng": "ng",
