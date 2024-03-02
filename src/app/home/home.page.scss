@@ -25,3 +25,7 @@
 #notFound a {
   text-decoration: none;
 }
+
+ion-progress-bar::part(stream) {
+  background-image: radial-gradient(ellipse at center, #e475f3 0%, #e475f3 30%, transparent 30%);
+}

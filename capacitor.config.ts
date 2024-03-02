@@ -10,6 +10,13 @@ const config: CapacitorConfig = {
     allowNavigation: [
       "rdap.org"
     ]
+  },
+  plugins:{
+    SplashScreen: {
+      launchShowDuration: 0,
+      backgroundColor: '#ffffffff',
+      launchAutoHide: true,
+    }
   }
 };
 
