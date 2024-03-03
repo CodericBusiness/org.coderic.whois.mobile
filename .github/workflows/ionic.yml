@@ -71,7 +71,7 @@ jobs:
         with:
           gradle-version: 8.6
       - name: Test Ionic
-        run: ionic test
+        run: npm ci && ionic test
       - name: Test with Gradle Wrapper
         run: ./gradlew --no-daemon test
         working-directory: android
