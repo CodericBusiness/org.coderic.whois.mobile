@@ -71,7 +71,7 @@ jobs:
       - name: Test Ionic
         run: ionic test
       - name: Test with Gradle Wrapper
-        run: cd android && ./gradlew --no-daemon test
+        run: ./gradlew --no-daemon test
         working-directory: android
   deploy:
     name: Deploy
