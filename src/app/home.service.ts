@@ -13,7 +13,7 @@ export class HomeService {
       return this.http.get<any>(url);
   }
 }
-interface QueryInterface {
-  type: string
-  name: string
+export interface QueryInterface {
+  type: string | null
+  name: string | null
 }

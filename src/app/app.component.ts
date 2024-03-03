@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Capacitor } from '@capacitor/core';
 import { ScreenOrientation } from '@capacitor/screen-orientation';
 import { SplashScreen } from '@capacitor/splash-screen';
 
@@ -9,7 +10,9 @@ import { SplashScreen } from '@capacitor/splash-screen';
 })
 export class AppComponent {
   constructor() {
-    this.config();
+    if (Capacitor.getPlatform() !== 'web') {
+      this.config();
+    }
   }
   async config() {
     await SplashScreen.hide();
