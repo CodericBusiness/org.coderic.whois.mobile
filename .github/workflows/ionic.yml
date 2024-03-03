@@ -27,6 +27,7 @@ jobs:
   # Build job
   test:
     runs-on: ubuntu-latest
+    environment: testing
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -54,9 +55,11 @@ jobs:
           cache: ${{ steps.detect-package-manager.outputs.manager }}
       - name: Build with Ionic
         run: npm install -g @ionic/cli
-      - name: Static HTML export with Ionic
+      - name: Test Ionic
         run: ionic test
-
+      - name: Test gradle
+        run: cd android && ./gradlew test
+        working-directory: android
   deploy:
     name: Deploy
     needs: test
