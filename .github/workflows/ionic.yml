@@ -57,6 +57,7 @@ jobs:
           cache: ${{ steps.detect-package-manager.outputs.manager }}
       - name: Build with Ionic
         run: npm install -g @ionic/cli
+      - run: ionic capacitor sync
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
