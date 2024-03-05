@@ -1,6 +1,6 @@
 {
-  "name": "app",
-  "short_name": "app",
+  "name": "Whois Lookup",
+  "short_name": "Whois",
   "theme_color": "#ffffff",
   "background_color": "#ffffff",
   "display": "standalone",
