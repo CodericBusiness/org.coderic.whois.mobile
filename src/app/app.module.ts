@@ -6,14 +6,16 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule, 
     HttpClientModule,
+    HttpClientTestingModule,
     IonicModule.forRoot(), 
     AppRoutingModule, ServiceWorkerModule.register('ngsw-worker.js', {
   enabled: !isDevMode(),
@@ -23,6 +25,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 })
   ],
   providers: [
+    HttpClient,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent],
