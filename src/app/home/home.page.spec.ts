@@ -6,6 +6,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { HomeService, QueryInterface } from '../home.service';
 import { HttpClient } from '@angular/common/http';
 import data from 'src/assets/disney.json';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 describe('HomePage', () => {
   let component: HomePage;
@@ -19,6 +20,8 @@ describe('HomePage', () => {
       declarations: [HomePage],
       imports: [
         HttpClientTestingModule,
+        FormsModule,
+        ReactiveFormsModule,
         IonicModule.forRoot()
       ],
     }).compileComponents();
