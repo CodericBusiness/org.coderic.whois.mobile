@@ -1,6 +1,5 @@
-name: Testing
-
-on: [push]
+name: Deploy
+on: workflow_dispatch
 concurrency:
   group: pages
   cancel-in-progress: true
