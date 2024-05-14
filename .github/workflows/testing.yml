@@ -1,9 +1,6 @@
 name: Testing
 
-on: [pull_request]
-concurrency:
-  group: testing
-  cancel-in-progress: false
+on: [pull_request, push]
 jobs:
   test:
     name: Test
