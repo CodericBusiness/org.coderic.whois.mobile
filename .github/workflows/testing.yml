@@ -1,9 +1,9 @@
 name: Testing
-
-on: [pull_request]
-concurrency:
-  group: testing
-  cancel-in-progress: false
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
 jobs:
   test:
     name: Test
