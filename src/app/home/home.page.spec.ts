@@ -2,9 +2,9 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
 import { HomePage } from './home.page';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { HomeService, QueryInterface } from '../home.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import data from 'src/assets/disney.json';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -17,14 +17,12 @@ describe('HomePage', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HomePage],
-      imports: [
-        HttpClientTestingModule,
-        FormsModule,
+    declarations: [HomePage],
+    imports: [FormsModule,
         ReactiveFormsModule,
-        IonicModule.forRoot()
-      ],
-    }).compileComponents();
+        IonicModule.forRoot()],
+    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+}).compileComponents();
 
     service = TestBed.inject(HomeService);
     httpTestingController = TestBed.inject(HttpTestingController);
