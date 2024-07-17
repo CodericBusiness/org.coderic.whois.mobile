@@ -52,7 +52,7 @@
     "@angular/compiler-cli": "^18.0.0",
     "@angular/language-service": "^18.0.0",
     "@capacitor/assets": "^3.0.4",
-    "@capacitor/cli": "^6.0.0",
+    "@capacitor/cli": "^6.1.1",
     "@ionic/angular-toolkit": "^11.0.1",
     "@types/jasmine": "~5.1.4",
     "@typescript-eslint/eslint-plugin": "^7.11.0",
